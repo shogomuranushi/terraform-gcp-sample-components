@@ -33,10 +33,6 @@ resource "google_storage_bucket" "gcs" {
 }
 
 ### KMS
-resource "google_project_service" "gcs" {
-  service            = "cloudkms.googleapis.com"
-  disable_on_destroy = false
-}
 resource "google_kms_crypto_key" "gcs" {
   name            = "gcs"
   key_ring        = "${google_kms_key_ring.gcs.self_link}"
